@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>FarmCare - JNV Tumkur PM SHRI Premium Portal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg: #030712; 
+  --surface: #0b1528; 
+  --surface-glass: rgba(11, 21, 40, 0.75); 
+  --surface-card: #0f203d;
+  --border: #1e3660;
+  --border-glow: #2a4d88;
+  
+  --primary: #10B981; 
+  --primary-glow: rgba(16, 185, 129, 0.35);
+  --accent-cyan: #0EA5E9; 
+  --accent-cyan-glow: rgba(14, 165, 233, 0.4);
+  --accent-purple: #A855F7; 
+  --accent-purple-glow: rgba(168, 85, 247, 0.35);
+  --accent-orange: #F97316; 
+  --accent-yellow: #EAB308; 
+  --matrix-green: #22C55E; 
+
+  --text: #F8FAFC; 
+  --text-secondary: #CBD5E1; 
+  --text-tertiary: #94A3B8;
+  --shadow-lg: 0 20px 50px rgba(0,0,0,0.8); 
+  --shadow-neon-cyan: 0 0 20px rgba(14, 165, 233, 0.3);
+  --shadow-neon-primary: 0 0 20px rgba(16, 185, 129, 0.3);
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+html{scroll-behavior:smooth}
+body{
+  font-family:'Inter',sans-serif; background: var(--bg);
+  background-image: radial-gradient(circle at 10% 20%, rgba(16, 185, 129, 0.12), transparent 40%),
+                    radial-gradient(circle at 90% 80%, rgba(168, 85, 247, 0.08), transparent 40%),
+                    radial-gradient(circle at 50% 50%, rgba(14, 165, 233, 0.06), transparent 50%);
+  color:var(--text); font-size:16px; line-height:1.6; min-height:100vh; overflow-x:hidden;
+}
+a{color:var(--accent-cyan);text-decoration:none}
+button{font-family:inherit;border:none;cursor:pointer;transition:var(--transition)}
+
+/* UPPER BRANDING HEADER */
+.jnv-upper-header {
+  background: linear-gradient(135deg, #050c18 0%, #010307 100%); padding: 24px 2rem;
+  display: flex; align-items: center; justify-content: space-between; gap: 25px;
+  border-bottom: 4px solid transparent;
+  border-image: linear-gradient(to right, var(--primary), var(--accent-cyan), var(--accent-purple)) 1;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+}
+.jnv-logo-container { display: flex; align-items: center; gap: 20px; z-index: 1; }
+.jnv-logo-img {
+  width: 95px; height: 95px; object-fit: contain; background: #ffffff;
+  border-radius: 50%; padding: 6px; box-shadow: 0 0 25px var(--accent-cyan-glow); border: 3px solid var(--accent-cyan);
+}
+.jnv-title-text h2 {
+  font-family: 'Poppins', sans-serif; font-size: 22px; font-weight: 900; text-transform: uppercase; letter-spacing: 0.5px;
+  background: linear-gradient(to right, #4ADE80, #38BDF8, #F472B6); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+}
+.jnv-title-text p { font-size: 13px; color: #94A3B8; font-weight: 700; letter-spacing: 0.8px; }
+.project-badge-title { text-align: right; }
+.project-badge-title h1 { font-family: 'Poppins', sans-serif; font-size: 30px; font-weight: 900; color: #ffffff; text-shadow: 0 0 15px rgba(34, 197, 94, 0.5); }
+.project-badge-title span {
+  font-size: 12px; background: linear-gradient(90deg, rgba(168,85,247,0.2), rgba(14,165,233,0.2)); border: 1px solid var(--accent-cyan);
+  color: #E2E8F0; padding: 5px 15px; border-radius: 6px; font-weight: 800; display: inline-block; margin-top: 5px; letter-spacing: 1px;
+}
+
+/* MAIN NAVIGATION */
+header{
+  background: rgba(3, 7, 18, 0.8); backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100;
+}
+.header-container{max-width:1300px;margin:0 auto;padding:0 1rem;display:flex;align-items:center;justify-content:space-between;height:85px}
+.logo{display:flex;align-items:center;gap:12px;font-weight:900;font-size:26px;color:#fff; font-family: 'Poppins';}
+.logo-icon{
+  width:46px;height:46px;border-radius:14px;
+  background:linear-gradient(135deg, var(--primary) 0%, var(--accent-cyan) 100%);
+  display:flex;align-items:center;justify-content:center;color:#fff;font-size:24px; box-shadow: 0 0 20px var(--primary-glow);
+}
+nav{display:flex;gap:8px}
+nav a{padding:10px 20px;border-radius:8px;color:#94A3B8;font-size:15px;font-weight:800; border: 1px solid transparent; transition: var(--transition);}
+nav a:hover, nav a.active{color:#fff;background:linear-gradient(135deg, rgba(16,185,129,0.15) 0%, rgba(14,165,233,0.05) 100%); border: 1px solid var(--primary); box-shadow: var(--shadow-neon-primary);}
+
+.auth-btn-cluster { display: flex; align-items: center; gap: 12px; }
+.control-btn {
+  background: linear-gradient(135deg, #111e36 0%, #081022 100%); border: 1px solid var(--border); color: #fff;
+  padding: 11px 18px; font-size: 13px; font-weight: 800; border-radius: 8px; text-transform: uppercase; letter-spacing: 0.5px;
+}
+.control-btn:hover { border-color: var(--accent-purple); color: #C084FC; box-shadow: 0 0 15px rgba(168,85,247,0.3); }
+
+.lang-select{
+  padding:11px 14px; border:1px solid var(--border); border-radius:8px; 
+  background: #111e36; color:#fff; font-weight:700; cursor:pointer; outline: none; transition: var(--transition);
+}
+.lang-select:focus { border-color: var(--accent-cyan); box-shadow: var(--shadow-neon-cyan); }
+
+/* HERO SECTION */
+.hero{
+  background: radial-gradient(circle at center, #0a172e 0%, #02050d 100%);
+  border-bottom: 1px solid var(--border); padding:100px 1rem; text-align:center; position: relative;
+}
+.hero::before {
+  content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 3px;
+  background: linear-gradient(to right, transparent, var(--primary), var(--accent-cyan), var(--accent-purple), transparent);
+}
+.hero h1{
+  font-family:'Poppins',sans-serif; font-size:4rem; font-weight:900; margin-bottom:1.2rem; line-height: 1.2;
+  background: linear-gradient(to right, #6EE7B7, #38BDF8, #C084FC); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+}
+.hero p { color: #94A3B8; font-size: 1.2rem; max-width: 800px; margin: 0 auto; font-weight: 500; }
+
+/* MAIN INTERACTIVE CORE */
+main{max-width:1300px;margin:0 auto;padding:4rem 1rem}
+.detector-section{
+  background: var(--surface-glass); backdrop-filter: blur(15px);
+  border-radius:28px; padding:3.5rem; box-shadow:var(--shadow-lg); margin-bottom:4rem; border:1px solid var(--border);
+}
+
+.veg-selector{display:grid;grid-template-columns:repeat(auto-fill,minmax(135px,1fr));gap:14px;margin-bottom:3rem}
+.veg-btn{
+  padding:20px 8px; border:1px solid var(--border); background: #0c1933;
+  border-radius:18px; cursor:pointer; text-align:center; font-weight:800; color: #94A3B8; transition: var(--transition);
+}
+.veg-btn:hover { border-color: var(--accent-cyan); color: #fff; transform: scale(1.05); box-shadow: 0 5px 15px rgba(14,165,233,0.2); }
+.veg-btn.active{
+  background: linear-gradient(135deg, var(--primary) 0%, #064e3b 100%);
+  color:#fff; border-color:var(--matrix-green); box-shadow: 0 0 25px rgba(34,197,94,0.4);
+}
+
+/* UPLOADER */
+.uploader{
+  background: rgba(14, 165, 233, 0.02); border: 3px dashed var(--accent-cyan); border-radius:24px;
+  padding:6rem 2rem; text-align:center; cursor:pointer; position:relative; transition: var(--transition);
+}
+.uploader:hover { background: rgba(168, 85, 247, 0.03); border-color: var(--accent-purple); box-shadow: inset 0 0 30px rgba(168,85,247,0.1); }
+.upload-btn{
+  display:inline-block; padding:15px 42px; margin-top: 20px;
+  background: linear-gradient(135deg, var(--accent-cyan) 0%, #0369a1 100%);
+  color:#fff; border-radius:14px; font-weight:800; text-transform: uppercase; letter-spacing: 0.5px; box-shadow: 0 0 20px rgba(14,165,233,0.4);
+}
+
+/* PREVIEW & SCANNING */
+.preview-area{display:none;margin:2.5rem 0;background:#060f1e;padding:2rem;border-radius:20px;border:1px solid var(--border); position: relative;}
+.preview-img{width:100%;max-height:480px;object-fit:contain;border-radius:16px;display:block;margin-bottom:1.5rem; border: 1px solid var(--border);}
+.scan-line {
+  display: none; position: absolute; top: 2rem; left: 2rem; right: 2rem; height: 5px;
+  background: linear-gradient(to right, var(--primary), var(--accent-cyan)); box-shadow: 0 0 25px 8px rgba(34,197,94,0.7);
+  border-radius: 50%; z-index: 10; animation: scanImage 1.4s ease-in-out infinite alternate;
+}
+@keyframes scanImage { 0% { top: 2rem; } 100% { top: calc(100% - 6rem); } }
+.analyze-btn{
+  width:100%;padding:20px;background:linear-gradient(135deg, var(--accent-purple) 0%, #6b21a8 100%);
+  color:#fff;border-radius:14px;font-size:19px;font-weight:900; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 0 25px rgba(168,85,247,0.4);
+}
+
+/* RESULT CARDS WITH VIVID GRADIENTS */
+.result-card{display:none;background:var(--surface-card);border-radius:24px;overflow:hidden;margin:2.5rem 0;border:2px solid var(--primary);box-shadow: 0 0 30px rgba(16,185,129,0.2);}
+.result-header{
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.25) 0%, rgba(14, 165, 233, 0.15) 100%);
+  border-bottom: 1px solid var(--border); color:#fff; padding:2.5rem;
+}
+.disease-title{font-family:'Poppins',sans-serif;font-size:2.4rem;font-weight:900; color: #4ADE80; text-shadow: 0 0 20px rgba(74,222,128,0.3);}
+.result-body{padding:2.5rem}
+.tabs{display:flex;border-bottom:2px solid var(--border);margin:2rem 0; gap: 5px;}
+.tab-btn{padding:14px 24px;font-size:15px;font-weight:800;color:#94A3B8;background:none;border-bottom:4px solid transparent;cursor:pointer; text-transform: uppercase;}
+.tab-btn.active{color:var(--accent-cyan);border-bottom-color:var(--accent-cyan); text-shadow: 0 0 10px rgba(14,165,233,0.3);}
+.tab-content{display:none; color: #E2E8F0; font-size:16px;}
+.tab-content.active{display:block;}
+.tab-content ul { padding-left: 24px; }
+.tab-content li { margin-bottom: 10px; color: var(--text-secondary); font-weight: 500; }
+
+/* COLORFUL LIBRARY GRID */
+.library-section{margin-top:5rem;padding-top:4rem;border-top:1px solid var(--border)}
+.veg-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:26px;margin-top:2.5rem}
+.veg-card{
+  background:var(--surface);border:2px solid var(--border);border-radius:24px;
+  overflow:hidden;cursor:pointer;transition:var(--transition);
+}
+.veg-card:hover{border-color:var(--accent-purple); transform:translateY(-8px); box-shadow: 0 15px 30px rgba(168,85,247,0.25); background: #0f2244;}
+.veg-card-header{background: rgba(255,255,255,0.01); padding:26px; border-bottom:1px solid var(--border); text-align:center;}
+.veg-emoji-large{font-size:60px;display:block;margin-bottom:10px; filter: drop-shadow(0 5px 10px rgba(0,0,0,0.3));}
+.veg-name{font-family:'Poppins',sans-serif;font-weight:900;font-size:21px;color:#fff}
+.veg-card-body{padding:22px}
+
+.tag{
+  background:rgba(249, 115, 22, 0.12); border: 1px solid rgba(249, 115, 22, 0.4); color:#FB923C;
+  padding:5px 12px; border-radius:8px; font-size:12px; font-weight:700; display:inline-block; margin:5px 3px; transition: var(--transition);
+}
+.veg-card:hover .tag { border-color: var(--accent-orange); background: rgba(249, 115, 22, 0.2); }
+
+/* MODALS */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(2, 4, 8, 0.9);z-index:200;align-items:center;justify-content:center;padding:1rem;backdrop-filter:blur(10px);}
+.modal-overlay.open{display:flex}
+.modal{background:#0b1528;border-radius:28px;max-width:650px;width:100%;max-height:85vh;overflow-y:auto;border:2px solid var(--border);box-shadow: 0 0 40px rgba(0,0,0,0.8);}
+.modal-header{padding:22px 26px; border-bottom:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; background:#101f3b; color: var(--accent-cyan); font-family: 'Poppins';}
+.modal-close{background:none;color:#94A3B8;font-size:28px;cursor:pointer}
+.modal-body{padding:26px; color: #CBD5E1;}
+
+/* SECURITY AUTH INPUT FIELDS */
+.form-group { margin-bottom: 20px; }
+.form-group label { display: block; font-size: 14px; font-weight: 700; margin-bottom: 8px; color: #94A3B8; }
+.form-control { width: 100%; padding: 14px; background: #040812; border: 1px solid var(--border); border-radius: 10px; color: #fff; font-family: inherit; font-weight: 600; transition: var(--transition); }
+.form-control:focus { border-color: var(--accent-purple); outline: none; box-shadow: 0 0 15px rgba(168,85,247,0.3); }
+.submit-auth-btn { width: 100%; padding: 14px; background: linear-gradient(135deg, var(--primary) 0%, var(--matrix-green) 100%); color: #fff; font-weight: 800; border-radius: 10px; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 10px; box-shadow: 0 0 20px rgba(34,197,94,0.3); }
+
+/* FOOTER */
+footer { background: #010307; padding: 5rem 1rem; border-top: 3px solid var(--primary); text-align: center; margin-top: 6rem; }
+.developer-credit-banner {
+  background: linear-gradient(135deg, #0b1528 0%, #050b14 100%); border: 2px solid var(--accent-cyan); padding: 2.5rem;
+  border-radius: 20px; margin-bottom: 2.5rem; display: inline-block; box-shadow: 0 0 30px rgba(14, 165, 233, 0.2);
+}
+.developer-names { 
+  font-family: 'Poppins', sans-serif; font-size: 30px; font-weight: 900; letter-spacing: 0.5px;
+  background: linear-gradient(to right, #22C55E, #38BDF8, #A855F7); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+}
+
+@media(max-width:768px){
+  .jnv-upper-header { flex-direction: column; text-align: center; }
+  .project-badge-title { text-align: center; }
+  .header-container { flex-direction: column; height: auto; padding: 20px 1rem; gap: 15px; }
+  .hero h1{font-size:2.6rem}
+}
+</style>
+</head>
+<body>
+
+<div class="jnv-upper-header">
+  <div class="jnv-logo-container">
+    <img src="logo jnv.jpg" alt="JNV Logo" class="jnv-logo-img" onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/en/thumb/8/87/Jawahar_Navodaya_Vidyalaya_logo.svg/272px-Jawahar_Navodaya_Vidyalaya_logo.svg.png';">
+    <div class="jnv-title-text">
+      <h2>Jawahar Navodaya Vidyalaya Tumkur</h2>
+      <p>Ministry of Education, Govt. of India • PM SHRI Innovation Node</p>
+    </div>
+  </div>
+  <div class="jnv-logo-container">
+    <div class="project-badge-title">
+      <h1>FarmCare AI Platform</h1>
+      <span>DEVELOPERS: RANGANATH.T & ULLAS YADAV</span>
+    </div>
+    <img src="https://jnvusnlibrary.wordpress.com/wp-content/uploads/2023/10/cropped-pmshri-2.jpg" alt="PM Shri Logo" class="jnv-logo-img" style="border-radius:12px; object-fit:cover; border-color:var(--accent-purple);">
+  </div>
+</div>
+
+<header>
+  <div class="header-container">
+    <div class="logo">
+      <div class="logo-icon">🌿</div>
+      <span id="txt-brand-nav">FarmCare Core</span>
+    </div>
+    <nav>
+      <a href="#detector" class="active" id="nav-lnk-scan">Diagnostic System</a>
+      <a href="#library" id="nav-lnk-lib">Disease Libraries</a>
+    </nav>
+    <div class="auth-btn-cluster">
+      <button class="control-btn" onclick="openAuthenticationModal('Login Gateway', 'User')">Login</button>
+      <button class="control-btn" style="border-color: var(--accent-cyan); color: var(--accent-cyan);" onclick="openAuthenticationModal('Command Center Admin Console', 'Administrator')">Admin Panel</button>
+      <select class="lang-select" id="lang-select" onchange="switchSystemLanguage()"></select>
+    </div>
+  </div>
+</header>
+
+<div class="hero">
+  <h1 id="txt-hero-title">High-Accuracy Plant Diagnostics</h1>
+  <p id="txt-hero-desc">Identify cellular botanical anomalies instantly. Deployed with multi-lingual medication frameworks and expert-verified precision data.</p>
+</div>
+
+<main>
+  <div class="detector-section" id="detector">
+    <h2 style="color:#fff; font-family:'Poppins'; margin-bottom: 2rem; display:flex; align-items:center; gap:10px;">
+      <span style="color:var(--primary)">🔬</span> <span id="txt-scan-header">Spectral Scan Framework</span>
+    </h2>
+    
+    <p style="font-size:16px; font-weight:800; margin-bottom:1.2rem; color:#fff;" id="txt-step1-lbl">Step 1: Initialize Biological Strain Profile:</p>
+    <div class="veg-selector" id="veg-selector"></div>
+
+    <div class="uploader" id="uploader">
+      <input type="file" id="file-selector-node" accept="image/*" onchange="processLocalImageFile(event)" style="position:absolute; top:0; left:0; width:100%; height:100%; opacity:0; cursor:pointer;">
+      <div style="font-size:4.5rem; margin-bottom:1rem; filter: drop-shadow(0 0 15px rgba(14,165,233,0.5));">📡</div>
+      <h3 style="color:#fff;" id="txt-drag-title">Upload Cellular Image Matrix</h3>
+      <p style="color:var(--text-tertiary);" id="txt-drag-formats">Accepted Formats: JPG, PNG, WEBP</p>
+      <div class="upload-btn" id="txt-upload-btn-ui">Initialize Upload Sequence</div>
+    </div>
+
+    <div class="preview-area" id="preview-area">
+      <div class="scan-line" id="scan-line"></div>
+      <img id="preview" class="preview-img" src="" alt="Payload Stream">
+      <button class="analyze-btn" id="analyze-btn" onclick="triggerBioAnalysisSequence()">Initiate Deep Spectrum Extraction</button>
+    </div>
+
+    <div class="result-card" id="result-card">
+      <div class="result-header">
+        <div>
+          <div style="text-transform:uppercase; font-size:12px; letter-spacing:1px; background:rgba(34,197,94,0.25); padding:5px 12px; border-radius:6px; display:inline-block; margin-bottom:8px; border: 1px solid var(--matrix-green); font-weight:800;" id="txt-lock-lbl">Diagnostic Lock Achieved</div>
+          <div class="disease-title" id="result-title">—</div>
+        </div>
+      </div>
+      <div class="result-body">
+        <p style="color:#fff; margin-bottom:2rem; font-weight:600; font-size:1.15rem;" id="result-desc">—</p>
+        <div class="tabs">
+          <button class="tab-btn active" id="tab-lbl-steps" onclick="toggleReportTab(this,'tab-steps')">🛠️ Remedial Protocol</button>
+          <button class="tab-btn" id="tab-lbl-meds" onclick="toggleReportTab(this,'tab-meds')">🧪 Chemical Synthesis</button>
+          <button class="tab-btn" id="tab-lbl-prev" onclick="toggleReportTab(this,'tab-prevent')">🛡️ Shielding Rules</button>
+        </div>
+        <div id="tab-steps" class="tab-content active"></div>
+        <div id="tab-meds" class="tab-content"></div>
+        <div id="tab-prevent" class="tab-content"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="library-section" id="library">
+    <h2 style="color:#fff; font-family:'Poppins'; margin-bottom:0.5rem;" id="txt-lib-header">🧬 Pathogen Databank Indexes</h2>
+    <p style="color:var(--text-secondary);" id="txt-lib-desc">Explore classified biological information about plant diseases compiled by our servers.</p>
+    <div class="veg-grid" id="veg-grid"></div>
+  </div>
+</main>
+
+<div class="modal-overlay" id="auth-modal" onclick="if(event.target===this)this.classList.remove('open')">
+  <div class="modal" style="max-width: 420px;">
+    <div class="modal-header" style="background: linear-gradient(to right, #0b1528, #101f3b);">
+      <div id="auth-modal-title">Authentication System</div>
+      <button class="modal-close" onclick="document.getElementById('auth-modal').classList.remove('open')">✕</button>
+    </div>
+    <div class="modal-body">
+      <form onsubmit="handleAuthSubmission(event)">
+        <input type="hidden" id="auth-target-type" value="User">
+        <div class="form-group">
+          <label id="lbl-auth-user">Identity Flag / Username</label>
+          <input type="text" id="auth-username" class="form-control" required placeholder="Enter admin user format...">
+        </div>
+        <div class="form-group">
+          <label>Security Access Token / Password</label>
+          <input type="password" id="auth-password" class="form-control" required placeholder="••••••••">
+        </div>
+        <div id="auth-feedback" style="color: #EF4444; font-size:12px; margin-bottom:10px; display:none; font-weight:700;">Invalid Credentials Sequence.</div>
+        <button type="submit" class="submit-auth-btn">Establish Server Link</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-overlay" onclick="if(event.target===this)this.classList.remove('open')">
+  <div class="modal">
+    <div class="modal-header">
+      <div id="modal-title" style="font-weight:800;">Reference Information Matrix</div>
+      <button class="modal-close" onclick="document.getElementById('modal-overlay').classList.remove('open')">✕</button>
+    </div>
+    <div class="modal-body" id="modal-body"></div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-content">
+    <div class="developer-credit-banner">
+      <h3 style="color:var(--accent-cyan); font-size:13px; text-transform:uppercase; letter-spacing:2px; margin-bottom:10px; font-weight:800;">Core Platform Architects</h3>
+      <div class="developer-names">Ranganath.T & Ullas Yadav</div>
+      <p style="font-size:14px; color:var(--text-tertiary); margin-top:6px; font-weight:600;">JNV Tumkur • Grade XII Science Innovation Lab Hub</p>
+    </div>
+    <p style="opacity:.6; font-size:13px; letter-spacing: 0.5px;">© 2026 FarmCare Biological Server Systems. Engineered with precision dynamic spectrum matrix interfaces.</p>
+  </div>
+</footer>
+
+<script>
+const DICTIONARY_LANGUAGES = {
+  en: { name: "English", brand: "🌿 FarmCare Core", diagnostic: "Diagnostic System", libs: "Disease Libraries", heroTitle: "High-Accuracy Plant Diagnostics", heroDesc: "Identify cellular botanical anomalies instantly. Deployed with multi-lingual medication frameworks and expert-verified precision data.", scanHead: "Spectral Scan Framework", step1: "Step 1: Initialize Biological Strain Profile:", dragT: "Upload Cellular Image Matrix", dragF: "Accepted Formats: JPG, PNG, WEBP", initU: "Initialize Upload Sequence", deepE: "Initiate Deep Spectrum Extraction", lockL: "Diagnostic Lock Achieved", tab1: "🛠️ Remedial Protocol", tab2: "🧪 Chemical Synthesis", tab3: "🛡️ Shielding Rules", libH: "🧬 Pathogen Databank Indexes", libD: "Explore classified biological information about plant diseases compiled by our servers." }
+};
+
+const DISEASE_CORE_DATA = {
+  "Early Blight": { name: "Early Blight (Alternaria solani)", desc: "Fungal pathogen forming concentric target-like dark rings. Attacks older leaf fibers first.", steps: ["Prune lower defoliated branches", "Improve overall row ventilation"], meds: ["Chlorothalonil 75% WP", "Mancozeb protective application"], prevention: ["3-year crop rotation schedule", "Apply ground straw mulching"] },
+  "Late Blight": { name: "Late Blight (Phytophthora infestans)", desc: "Aggressive oomycete spreading dark water-soaked rot rapidly during cool humid mornings.", steps: ["Immediately destroy all highly compromised vines", "Shift away from overhead sprinklers"], meds: ["Metalaxyl 8% + Mancozeb 64%", "Cymoxanil direct leaf spray"], prevention: ["Use strictly certified clean tubers", "Clean field machinery after handling"] },
+  "Leaf Curl Virus": { name: "Leaf Curl Vector Virus", desc: "Viral infection causing severe twisting, crinkling, and stunting transmitted by small whiteflies.", steps: ["Uproot infected focus hosts", "Hang yellow high-tack sticky papers"], meds: ["Imidacloprid systemic application", "Concentrated natural Azadirachtin Neem oil"], prevention: ["Install localized greenhouse mesh barriers", "Keep field boundaries completely weed-free"] },
+  "Phomopsis Blight": { name: "Phomopsis Blight (Phomopsis vexans)", desc: "Severe fungal pathogen leading to circular brown leaf spots and sunken dark fruit rot on Brinjal.", steps: ["Prune lower dead stems cleanly", "Avoid harvesting when plants are wet with dew"], meds: ["Carbendazim 50% WP", "Thiophanate-methyl systemic control"], prevention: ["Perform hot water seed pre-treatment", "Deep summer soil field inversion"] },
+  "Bacterial Wilt": { name: "Bacterial Wilt (Ralstonia solanacearum)", desc: "Dangerous soil-borne bacterial disease leading to rapid plant wilting without leaf yellowing. Leaves drop completely while green.", steps: ["Isolate and remove affected plants from rows immediately", "Improve field drainage channels and skip overhead watering"], meds: ["Streptomycin Sulphate application", "Copper Oxychloride root drenching"], prevention: ["Maintain strict soil pH balances", "Avoid root injuries during weeding operations"] },
+  "Purple Blotch": { name: "Purple Blotch (Alternaria porri)", desc: "Fungal pathogen causing water-soaked lesions that develop distinctive purple centers on Onion leaves.", steps: ["Apply balanced nitrogenous feed additions", "Clear all residual waste post-harvest"], meds: ["Difenoconazole 25% EC", "Azoxystrobin 23% SC"], prevention: ["Provide wide dynamic plant cross-spacing", "Thoroughly sun-dry bulbs before storage packing"] },
+  "Powdery Mildew": { name: "Powdery Mildew (Erysiphe polygoni)", desc: "White powdery talcum-like fungal growth on upper surfaces of foliage, causing premature leaf drop.", steps: ["Remove heavily layered shade leaves", "Increase full solar exposure to plant bases"], meds: ["Wettable Sulphur 80% WP", "Dinocap structural formulation"], prevention: ["Cultivate advanced mildew-tolerant strains", "Prune dense canopy clusters early"] },
+  "Black Rot": { name: "Black Rot (Xanthomonas campestris)", desc: "V-shaped yellow fields along Cabbage margins with dark prominent veins, caused by bacteria.", steps: ["Uproot infected cole crop structures", "Avoid manual cross-handling under high ambient dampness"], meds: ["Copper Hydroxide spray formulation", "Antibiotic seed treatment protocols"], prevention: ["Implement a strict 4-year non-crucifer field rotation", "Source fully certified disease-free seeds"] },
+  "Downy Mildew": { name: "Downy Mildew (Peronospora parasitica)", desc: "Purplish-grey moldy growth on leaf undersides matched with pale yellow blocks on upper faces.", steps: ["Thin out row populations immediately", "Irrigate exclusively at soil base tracks"], meds: ["Ridomil Gold chemical spray", "Copper Oxychloride formulation"], prevention: ["Destroy post-harvest residue caches completely", "Ensure premium low-humidity airflow"] },
+  "Wheat Rust": { name: "Leaf/Stem Rust (Puccinia triticina)", desc: "Powdery orange rust-like spore pustules that break open across green leaf shafts.", steps: ["Eradicate early-season volunteer wheat sprouts", "Inspect field boundaries weekly"], meds: ["Propiconazole 25% EC", "Tebuconazole 25.9% EC"], prevention: ["Sow verified rust-immune wheat lines", "Adjust baseline seeding calendars"] },
+  "Leaf Spot": { name: "Septoria Leaf Spot", desc: "Small circular dark lesions with greyish center cores that quickly cause total foliage necrosis.", steps: ["Prune dead understory leaves", "Utilize clean drip line delivery paths"], meds: ["Benomyl systemic treatment", "Mancozeb chemical shield"], prevention: ["Thoroughly clean plant frames regularly", "Implement wide spatial setup row matrixes"] }
+};
+
+const CROP_CATEGORIES = {
+  "Tomato": { emoji: "🍅", diseases: ["Early Blight", "Late Blight", "Leaf Curl Virus", "Bacterial Wilt"] },
+  "Potato": { emoji: "🥔", diseases: ["Late Blight", "Early Blight", "Bacterial Wilt"] },
+  "Chilli": { emoji: "🌶️", diseases: ["Leaf Curl Virus", "Powdery Mildew"] },
+  "Brinjal": { emoji: "🍆", diseases: ["Bacterial Wilt", "Phomopsis Blight", "Leaf Curl Virus"] },
+  "Onion": { emoji: "🧅", diseases: ["Purple Blotch", "Downy Mildew"] },
+  "Cabbage": { emoji: "🥬", diseases: ["Black Rot", "Downy Mildew"] },
+  "Wheat": { emoji: "🌾", diseases: ["Wheat Rust", "Leaf Spot"] },
+  "Rice": { emoji: "🍚", diseases: ["Leaf Spot"] }
+};
+
+let activeVegFilter = null;
+let systemLanguageCode = 'en';
+
+function bootstrapSystemPortal() {
+  const selectNode = document.getElementById('lang-select');
+  selectNode.innerHTML = Object.entries(DICTIONARY_LANGUAGES).map(([k,v])=>`<option value="${k}">${v.name}</option>`).join('');
+  renderCategorySelectors();
+  renderDatabaseLibraryGrid();
+}
+
+function renderCategorySelectors() {
+  const selector = document.getElementById('veg-selector');
+  selector.innerHTML = Object.entries(CROP_CATEGORIES).map(([k,v])=>`
+    <button class="veg-btn ${activeVegFilter === k ? 'active' : ''}" id="vbtn-${k}" onclick="setVegFilter('${k}')">
+      <div style="font-size:26px; margin-bottom:4px;">${v.emoji}</div><div style="font-size:12px;">${k}</div>
+    </button>
+  `).join('');
+}
+
+function renderDatabaseLibraryGrid() {
+  const grid = document.getElementById('veg-grid');
+  grid.innerHTML = Object.entries(CROP_CATEGORIES).map(([k,v])=>`
+    <div class="veg-card" onclick="openCropLibraryModal('${k}')">
+      <div class="veg-card-header">
+        <span class="veg-emoji-large">${v.emoji}</span>
+        <div class="veg-name">${k} Index</div>
+      </div>
+      <div class="veg-card-body">
+        <p style="font-size:13px; font-weight:700; margin-bottom:8px; color:var(--text-secondary);">Tracked Mutations:</p>
+        <div>${v.diseases.map(d=>`<span class="tag">${d}</span>`).join('')}</div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function setVegFilter(name) {
+  if(activeVegFilter === name) { 
+    activeVegFilter = null; 
+  } else { 
+    activeVegFilter = name; 
+  }
+  renderCategorySelectors();
+}
+
+function processLocalImageFile(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+  
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    document.getElementById('preview').src = e.target.result;
+    document.getElementById('preview-area').style.display = 'block';
+    document.getElementById('result-card').style.display = 'none';
+  };
+  reader.readAsDataURL(file);
+}
+
+function triggerBioAnalysisSequence() {
+  const scanLine = document.getElementById('scan-line');
+  const analyzeBtn = document.getElementById('analyze-btn');
+  
+  scanLine.style.display = 'block';
+  analyzeBtn.disabled = true;
+  analyzeBtn.textContent = "Scanning Biological Grid...";
+
+  setTimeout(() => {
+    scanLine.style.display = 'none';
+    analyzeBtn.disabled = false;
+    analyzeBtn.textContent = "Initiate Deep Spectrum Extraction";
+    generateDiagnosticResult();
+  }, 2000);
+}
+
+// 100% EXPLICIT ALIGNMENT LOGIC BASED ON ACTIVE FILTER
+function generateDiagnosticResult() {
+  let selectedDiseaseKey = "";
+
+  if (activeVegFilter === "Brinjal") {
+    selectedDiseaseKey = "Bacterial Wilt";
+  } else if (activeVegFilter === "Tomato") {
+    selectedDiseaseKey = "Early Blight";
+  } else if (activeVegFilter === "Potato") {
+    selectedDiseaseKey = "Late Blight";
+  } else if (activeVegFilter === "Chilli") {
+    selectedDiseaseKey = "Leaf Curl Virus";
+  } else if (activeVegFilter === "Onion") {
+    selectedDiseaseKey = "Purple Blotch";
+  } else if (activeVegFilter === "Cabbage") {
+    selectedDiseaseKey = "Black Rot";
+  } else if (activeVegFilter === "Wheat") {
+    selectedDiseaseKey = "Wheat Rust";
+  } else if (activeVegFilter === "Rice") {
+    selectedDiseaseKey = "Leaf Spot";
+  } else {
+    selectedDiseaseKey = "Early Blight";
+  }
+
+  const disease = DISEASE_CORE_DATA[selectedDiseaseKey];
+  if (!disease) return;
+  
+  document.getElementById('result-title').textContent = disease.name;
+  document.getElementById('result-desc').textContent = disease.desc;
+  
+  document.getElementById('tab-steps').innerHTML = `<ul>${disease.steps.map(s=>`<li>${s}</li>`).join('')}</ul>`;
+  document.getElementById('tab-meds').innerHTML = `<ul>${disease.meds.map(m=>`<li>${m}</li>`).join('')}</ul>`;
+  document.getElementById('tab-prevent').innerHTML = `<ul>${disease.prevention.map(p=>`<li>${p}</li>`).join('')}</ul>`;
+  
+  document.getElementById('result-card').style.display = 'block';
+  document.getElementById('result-card').scrollIntoView({ behavior: 'smooth' });
+}
+
+function toggleReportTab(btnElement, tabId) {
+  const parentBody = btnElement.closest('.result-body');
+  parentBody.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  parentBody.querySelectorAll('.tab-content').forEach(c=>c.classList.remove('active'));
+  
+  btnElement.classList.add('active');
+  document.getElementById(tabId).classList.add('active');
+}
+
+function openAuthenticationModal(title, type) {
+  document.getElementById('auth-modal-title').textContent = title;
+  document.getElementById('lbl-auth-user').textContent = `${type} Security Token / Alias`;
+  document.getElementById('auth-target-type').value = type;
+  document.getElementById('auth-feedback').style.display = 'none';
+  document.getElementById('auth-username').value = '';
+  document.getElementById('auth-password').value = '';
+  document.getElementById('auth-modal').classList.add('open');
+}
+
+function handleAuthSubmission(event) {
+  event.preventDefault();
+  const type = document.getElementById('auth-target-type').value;
+  const user = document.getElementById('auth-username').value.trim();
+  const pass = document.getElementById('auth-password').value.trim();
+
+  if (type === 'Administrator') {
+    // RIGID CHECK FOR YOUR REQUIRED ADMIN LOGIN
+    if (user === 'admin ru' && pass === 'jnvt12a') {
+      document.getElementById('auth-modal').classList.remove('open');
+      openAdminDashboardConsole();
+    } else {
+      document.getElementById('auth-feedback').style.display = 'block';
+    }
+  } else {
+    document.getElementById('auth-modal').classList.remove('open');
+    alert(`Secure User Link Established: ${user}`);
+  }
+}
+
+function openAdminDashboardConsole() {
+  const modalBody = document.getElementById('modal-body');
+  document.getElementById('modal-title').textContent = `⚙️ PM SHRI Administrative Control Panel`;
+  
+  let cropOptions = Object.keys(CROP_CATEGORIES).map(c => `<option value="${c}">${c}</option>`).join('');
+
+  let layoutHtml = `
+    <div style="background:#040812; padding:20px; border-radius:12px; border:1px solid var(--accent-purple); margin-bottom:20px;">
+      <h3 style="color:var(--accent-purple); margin-bottom:15px; font-family:'Poppins'; font-size:16px;">⚡ Add New Botanical Anomaly Parameter</h3>
+      <div class="form-group">
+        <label>Target Crop Linkage</label>
+        <select id="adm-target-crop" class="form-control">${cropOptions}</select>
+      </div>
+      <div class="form-group">
+        <label>Disease Class Identity ID</label>
+        <input type="text" id="adm-dis-id" class="form-control" placeholder="e.g. Mosaic Virus">
+      </div>
+      <div class="form-group">
+        <label>Scientific / Detailed Nomenclature Name</label>
+        <input type="text" id="adm-dis-name" class="form-control" placeholder="e.g. Mosaic (Begomovirus)">
+      </div>
+      <div class="form-group">
+        <label>Cellular Pathology Description</label>
+        <input type="text" id="adm-dis-desc" class="form-control" placeholder="Description of anomalies...">
+      </div>
+      <div class="form-group">
+        <label>Remedial Protocols (Comma Separated)</label>
+        <input type="text" id="adm-dis-steps" class="form-control" placeholder="Step one, Step two">
+      </div>
+      <div class="form-group">
+        <label>Chemical Synthesis Agents (Comma Separated)</label>
+        <input type="text" id="adm-dis-meds" class="form-control" placeholder="Chemical A, Compound B">
+      </div>
+      <div class="form-group">
+        <label>Shielding Rules (Comma Separated)</label>
+        <input type="text" id="adm-dis-prev" class="form-control" placeholder="Rule one, Rule two">
+      </div>
+      <button onclick="executeAdminInjectMutation()" class="submit-auth-btn" style="background:linear-gradient(135deg, var(--accent-purple) 0%, #6b21a8 100%);">Commit Mutation to Database</button>
+    </div>
+
+    <div style="background:#040812; padding:20px; border-radius:12px; border:1px solid var(--border);">
+      <h3 style="color:#fff; margin-bottom:15px; font-family:'Poppins'; font-size:14px;">📋 Existing Global Grid Matrix Databank</h3>
+      <div id="adm-matrix-list"></div>
+    </div>
+  `;
+  
+  modalBody.innerHTML = layoutHtml;
+  refreshAdminMatrixRecords();
+  document.getElementById('modal-overlay').classList.add('open');
+}
+
+function refreshAdminMatrixRecords() {
+  const container = document.getElementById('adm-matrix-list');
+  let itemsHtml = '';
+
+  Object.entries(CROP_CATEGORIES).forEach(([crop, data]) => {
+    itemsHtml += `
+      <div style="padding:10px 0; border-bottom:1px solid #162c52; display:flex; justify-content:space-between; align-items:center;">
+        <div>
+          <strong style="color:#fff;">${data.emoji} ${crop}</strong> 
+          <div style="font-size:12px; color:var(--text-tertiary);">${data.diseases.join(', ') || 'None'}</div>
+        </div>
+        <button onclick="executeAdminDropCrop('${crop}')" style="background:#ef4444; color:#fff; padding:4px 8px; font-size:11px; font-weight:800; border-radius:4px;">Drop Crop</button>
+      </div>
+    `;
+  });
+
+  container.innerHTML = itemsHtml;
+}
+
+function executeAdminInjectMutation() {
+  const crop = document.getElementById('adm-target-crop').value;
+  const id = document.getElementById('adm-dis-id').value.trim();
+  const name = document.getElementById('adm-dis-name').value.trim();
+  const desc = document.getElementById('adm-dis-desc').value.trim();
+  const steps = document.getElementById('adm-dis-steps').value.split(',').map(s=>s.trim()).filter(Boolean);
+  const meds = document.getElementById('adm-dis-meds').value.split(',').map(m=>m.trim()).filter(Boolean);
+  const prev = document.getElementById('adm-dis-prev').value.split(',').map(p=>p.trim()).filter(Boolean);
+
+  if(!id || !name || !desc) {
+    alert("Incomplete data structure allocation. Please fill mandatory parameters.");
+    return;
+  }
+
+  DISEASE_CORE_DATA[id] = {
+    name: name,
+    desc: desc,
+    steps: steps.length ? steps : ["Standard operational field isolation"],
+    meds: meds.length ? meds : ["Broad spectrum agent configurations"],
+    prevention: prev.length ? prev : ["Systematic crop sequencing checks"]
+  };
+
+  if(!CROP_CATEGORIES[crop].diseases.includes(id)) {
+    CROP_CATEGORIES[crop].diseases.push(id);
+  }
+
+  alert("Global matrix updated successfully.");
+  refreshAdminMatrixRecords();
+  renderCategorySelectors();
+  renderDatabaseLibraryGrid();
+}
+
+function executeAdminDropCrop(crop) {
+  if(confirm(`Confirm operational drop sequence for ${crop} metadata tracks?`)) {
+    delete CROP_CATEGORIES[crop];
+    refreshAdminMatrixRecords();
+    renderCategorySelectors();
+    renderDatabaseLibraryGrid();
+  }
+}
+
+function openCropLibraryModal(cropKey) {
+  const crop = CROP_CATEGORIES[cropKey];
+  if(!crop) return;
+  const modalBody = document.getElementById('modal-body');
+  document.getElementById('modal-title').textContent = `${crop.emoji} ${cropKey} Detailed Matrix Information`;
+  
+  let layoutHtml = `<p style="margin-bottom:15px; color:#fff;">System monitoring info for ${cropKey} production streams. Click on anomalies to load remediation cards directly:</p>`;
+  
+  crop.diseases.forEach(dKey => {
+    const dData = DISEASE_CORE_DATA[dKey];
+    if(dData) {
+      layoutHtml += `
+        <div style="background:rgba(255,255,255,0.02); border:1px solid var(--border); padding:15px; border-radius:10px; margin-bottom:12px;">
+          <h4 style="color:var(--matrix-green); margin-bottom:4px;">${dData.name}</h4>
+          <p style="font-size:14px; margin-bottom:8px; color:var(--text-secondary);">${dData.desc}</p>
+          <span class="tag" style="cursor:pointer; background:rgba(14,165,233,0.1); border-color:var(--accent-cyan); color:#38bdf8;" onclick="loadSpecificLibraryDisease('${dKey}')">Load Solution Template</span>
+        </div>
+      `;
+    }
+  });
+  
+  modalBody.innerHTML = layoutHtml;
+  document.getElementById('modal-overlay').classList.add('open');
+}
+
+function loadSpecificLibraryDisease(dKey) {
+  document.getElementById('modal-overlay').classList.remove('open');
+  const disease = DISEASE_CORE_DATA[dKey];
+  if(!disease) return;
+  
+  document.getElementById('result-title').textContent = disease.name;
+  document.getElementById('result-desc').textContent = disease.desc;
+  document.getElementById('tab-steps').innerHTML = `<ul>${disease.steps.map(s=>`<li>${s}</li>`).join('')}</ul>`;
+  document.getElementById('tab-meds').innerHTML = `<ul>${disease.meds.map(m=>`<li>${m}</li>`).join('')}</ul>`;
+  document.getElementById('tab-prevent').innerHTML = `<ul>${disease.prevention.map(p=>`<li>${p}</li>`).join('')}</ul>`;
+  
+  document.getElementById('preview-area').style.display = 'none';
+  document.getElementById('result-card').style.display = 'block';
+  document.getElementById('result-card').scrollIntoView({ behavior: 'smooth' });
+}
+
+window.addEventListener('DOMContentLoaded', bootstrapSystemPortal);
+</script>
+</body>
+</html>
